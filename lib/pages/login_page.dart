@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:login_screen/pages/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -101,13 +102,13 @@ class LoginPage extends StatelessWidget {
             "or connect with",
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF375E95),
+                  primary: const Color(0xFF375E95),
                 ),
                 onPressed: () {},
                 child: Row(
@@ -136,17 +137,28 @@ class LoginPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't have an account? "),
-              Text(
-                "SignUp",
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold,
+              const Text("Don't have an account? "),
+              InkWell(
+                child: const Text(
+                  "SignUp",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const SignUpPage();
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),
