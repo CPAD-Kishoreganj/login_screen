@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:login_screen/pages/home_page.dart';
 import 'package:login_screen/pages/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
+  static String login = '/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +85,13 @@ class LoginPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              },
               child: const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text(
@@ -151,13 +157,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) {
-                        return const SignUpPage();
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, SignUpPage.signUp);
                 },
               ),
             ],

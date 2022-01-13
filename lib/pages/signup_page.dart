@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen/pages/login_page.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  static String signUp = '/signUp';
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
 
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,8 +16,9 @@ class SignUpPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const TextField(
-              decoration: InputDecoration(
+            //Text(widget.name),
+            TextField(
+              decoration: const InputDecoration(
                 hintText: 'First Name',
                 prefixIcon: Icon(Icons.person_add),
               ),
@@ -24,6 +30,10 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Sign up'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
