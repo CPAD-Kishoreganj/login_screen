@@ -3,8 +3,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:login_screen/pages/home_page.dart';
 import 'package:login_screen/pages/signup_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   static String login = '/';
+
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String getEmail = '';
+
+  String getPassword = '';
+
+  bool isVisible = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +61,27 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
+              onChanged: (value) {
+                getEmail = value;
+              },
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              obscureText: isVisible ? true : false,
               decoration: InputDecoration(
                 hintText: 'Password',
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isVisible = !isVisible;
+                    });
+                  },
+                  icon: isVisible
+                      ? Icon(Icons.visibility_off)
+                      : Icon(Icons.visibility),
+                ),
                 prefixIcon: const Padding(
                   padding: EdgeInsets.only(left: 18.0),
                   child: Icon(Icons.lock_open),
@@ -62,6 +90,9 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
+              onChanged: (value) {
+                getPassword = value;
+              },
             ),
           ),
           const Padding(
@@ -88,7 +119,10 @@ class LoginPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(),
+                    builder: (context) => HomePage(
+                      email: getEmail,
+                      password: getPassword,
+                    ),
                   ),
                 );
               },
