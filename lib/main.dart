@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen/form_validation/login_screen.dart';
 import 'package:login_screen/pages/page_one.dart';
 import 'package:login_screen/pages/page_two.dart';
 import 'package:login_screen/pages/signup_page.dart';
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: LoginPage.login,
+      initialRoute: LogInScreen.lgScreen,
       routes: {
+        LogInScreen.lgScreen: (context) => const LogInScreen(),
         LoginPage.login: (context) => const LoginPage(),
         SignUpPage.signUp: (context) => SignUpPage(),
-        PageOne.pageOne: (context) => PageOne(),
-        PageTwo.pageTwo: (context) => PageTwo(),
+        PageOne.pageOne: (context) => const PageOne(),
+        PageTwo.pageTwo: (context) => const PageTwo(),
       },
     );
   }
