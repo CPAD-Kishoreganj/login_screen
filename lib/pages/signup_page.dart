@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_screen/pages/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
   static String signUp = '/signUp';
+
+  const SignUpPage({Key? key}) : super(key: key);
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
@@ -17,8 +18,8 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           children: [
             //Text(widget.name),
-            TextField(
-              decoration: const InputDecoration(
+            const TextField(
+              decoration: InputDecoration(
                 hintText: 'First Name',
                 prefixIcon: Icon(Icons.person_add),
               ),

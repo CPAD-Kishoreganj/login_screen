@@ -36,12 +36,9 @@ class _LogInScreenState extends State<LogInScreen> {
                   border: OutlineInputBorder(),
                 ),
                 validator: (String? value) {
-                  if (!value!.contains("@gmail.com")) {
-                    return "please enter a valid email";
+                  if (!value!.contains('@gmail.com')) {
+                    return 'please enter a valid email';
                   }
-                },
-                onSaved: (newValue) {
-                  email = newValue!;
                 },
               ),
               const SizedBox(height: 12),
@@ -61,22 +58,12 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   border: const OutlineInputBorder(),
                 ),
-                validator: (value) {
-                  if (value!.length < 6) {
-                    return 'Password must be more than 5 characters';
-                  }
-                },
-                onSaved: (newValue) {
-                  password = newValue!;
-                },
+                
               ),
               const SizedBox(height: 12),
               ElevatedButton(
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    print("your $email and $password");
-                  }
+                  if (formKey.currentState!.validate()) {}
                 },
                 child: const Text('Submit'),
               ),

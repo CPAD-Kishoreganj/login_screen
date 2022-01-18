@@ -79,8 +79,8 @@ class _LoginPageState extends State<LoginPage> {
                     });
                   },
                   icon: isVisible
-                      ? Icon(Icons.visibility_off)
-                      : Icon(Icons.visibility),
+                      ? const Icon(Icons.visibility_off)
+                      : const Icon(Icons.visibility),
                 ),
                 prefixIcon: const Padding(
                   padding: EdgeInsets.only(left: 18.0),
