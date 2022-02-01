@@ -30,6 +30,7 @@ class _LogInScreenState extends State<LogInScreen> {
           child: Column(
             children: [
               TextFormField(
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   hintText: "Email",
                   //errorText: 'please enter  valid email',
@@ -58,7 +59,6 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                   border: const OutlineInputBorder(),
                 ),
-                
               ),
               const SizedBox(height: 12),
               ElevatedButton(
